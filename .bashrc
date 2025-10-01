@@ -1,3 +1,4 @@
+# 基础配置
 # 只在需要时执行整个配置文件
 case $- in
     *i*) ;;
@@ -24,10 +25,10 @@ export TMUX_TMPDIR="$HOME/.tmux/logs"
 
 # 历史记录
 HISTCONTROL=ignoreboth   # 历史记录中不记录重复行和以空格开头的行
-shopt -s histappend   # 向历史记录中追加而非覆盖
-shopt -s cmdhist   # 设置多行命令保存为一条历史记录 
-HISTSIZE=1000   # 当前会话可回看的命令条数
-HISTFILESIZE=2000   # 历史文件中保留的命令数字
+shopt -s histappend      # 向历史记录中追加而非覆盖
+shopt -s cmdhist         # 设置多行命令保存为一条历史记录 
+HISTSIZE=1000            # 当前会话可回看的命令条数
+HISTFILESIZE=2000        # 历史文件中保留的命令数字
 
 # 命令自动补全
 if ! shopt -oq posix; then
@@ -38,7 +39,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# 显示
+# ---------------------------------------------------------------------------------------
+
+# 显示设置
 shopt -s checkwinsize # 确保窗口尺寸正常
 
 # 设置光标
@@ -78,8 +81,10 @@ xterm*|rxvt*)
     ;;
 esac
 
-# 增强分页功能
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# ---------------------------------------------------------------------------------------
+
+# 功能设置
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)" # 增强分页功能
 
 # ls/grep彩色显示
 if [ -x /usr/bin/dircolors ]; then
@@ -93,6 +98,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# 使cd-不打印提示 
+cd() {
+    if [[ "$1" == "-" ]]; then
+        builtin cd - >/dev/null
+    else
+        builtin cd "$@"
+    fi
+}
+
+# ---------------------------------------------------------------------------------------
+
+# 别名
 # 集中管理个人别名
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -103,92 +120,60 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# 别名：快速切换至d/c盘
+# git
+alias gs='git status'
+
+# 虚拟机
+# 别名示例
+alias vmls='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe list vms'
+alias vmon='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe startvm "Ubuntu Server 24.04" --type headless'
+alias vmrun='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe list runningvms'
+alias vmoff='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe controlvm "Ubuntu Server 24.04" poweroff'
+
+# ---------------------------------------------------------------------------------------
+
+# 目录切换
 alias d='cd /mnt/d'
 alias c='cd /mnt/c'
+alias dt='cd /tmp' # /tmp目录 
+alias dp='cd /mnt/d/'\''#Persistence'\''/Persistence'
 
-alias dt='cd /tmp' # 快速切换至/tmp目录
-alias vb='vim .bashrc' # 快速编辑bash配置文件
-alias rb='source .bashrc' # 重载bash配置
-alias vv='vim .vimrc' # 快速编辑vim配置文件
-alias vt='vim test' # 快速打开测试文件
+# 打开文件
+alias vb='vim ~/.bashrc'    # 快速编辑bash配置文件
+alias rb='source ~/.bashrc' # 重载bash配置
+alias vv='vim ~/.vimrc'     # 快速编辑vim配置文件
+alias vt='vim test'         # 快速打开测试文件
+alias rt='rm test'          # 快速移除测试文件
 
-# 自定义命令
-# 打开Edge浏览器常用网页
-gpt() {  # chatgpt
-    d
-    cmd.exe /c start "" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" "https://chatgpt.com/"
-    cd -
-}
-
-miss() { # missing-semester
-    d
-    cmd.exe /c start "" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" "https://missing-semester-cn.github.io/"
-    cd -
-}
-
-deep() { # deepel
-    d
-    cmd.exe /c start "" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" "https://www.deepl.com/zh/translator"
-    cd -
-}
-
-dou() { # 豆包
-    d
-    cmd.exe /c start "" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" "https://www.doubao.com/chat/"
-    cd -
-}
-# ---------------------------------------------------------------------------------------
+# 打开网页
+alias gh='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://github.com/'
+alias gpt='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://chatgpt.com/'
+alias dou='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://www.doubao.com/chat/' 
+alias deep='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://www.deepl.com/zh/translator'
+alias miss='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://missing-semester-cn.github.io/ '
 
 # 打开软件
-cfw() {      # CFW
-    d
-    cmd.exe /c start "" "D:\Tools\CFW_META\Clash for Windows.exe"
-    cd -
-}
-
-et() {      # Everything
-    d
-    cmd.exe /c start "" "C:\Program Files\Everything\Everything.exe"
-    cd -
-}
-
-qq() {      # QQ
-    d
-    cmd.exe /c start "" "D:\Social\Tencent\QQNT\QQ.exe"
-    cd -
-}
-
-vx() {      # 微信
-    d
-    cmd.exe /c start "" "D:\social\Weixin\Weixin.exe"
-    cd -
-}
-
-xmind() {       # Xmind
-    c
-    cmd.exe /c start "" "C:\Users\tianx\AppData\Local\Programs\Xmind\Xmind.exe"
-    cd -
-}
-
-# ---------------------------------------------------------------------------------------
-
-# 打开windows文件
+# 定义函数wopen
 wopen() {
     if [ -z "$1" ]; then
-        # 没有参数 → 打开当前目录
-        cmd.exe /c start "" "$(wslpath -w "$PWD")"
-    else
-        # 有参数 → 打开当前目录下的文件
-        cmd.exe /c start "" "$(wslpath -w "$PWD")\\$1"
+        return 1
     fi
+    (
+        "$1" >/dev/null 2>&1 &
+    )
 }
 
+# 别名
+alias cfw='wopen "/mnt/d/Tools/CFW_META/Clash for Windows.exe"'
+alias et='wopen "/mnt/c/Program Files/Everything/Everything.exe"'
+alias xmind='wopen /mnt/c/Users/tianx/AppData/Local/Programs/Xmind/Xmind.exe'
+alias qq='wopen /mnt/d/Social/Tencent/QQNT/QQ.exe'
+alias vx='wopen /mnt/d/Social/Weixin/Weixin.exe'
+
 # 打开笔记
-xopen() {
+note() {
     d
-    cd Mi*
-    wopen M*
+    cmd.exe /c start "$(wslpath -w ./Missing-Semester/Missing-Semester.xmind)"
     cd ~
 }
 
