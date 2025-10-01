@@ -124,7 +124,6 @@ alias l='ls -CF'
 alias gs='git status'
 
 # 虚拟机
-# 别名示例
 alias vmls='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe list vms'
 alias vmon='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe startvm "Ubuntu Server 24.04" --type headless'
 alias vmrun='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe list runningvms'
