@@ -147,6 +147,12 @@ cfw() {      # CFW
     cd -
 }
 
+et() {      # Everything
+    d
+    cmd.exe /c start "" "C:\Program Files\Everything\Everything.exe"
+    cd -
+}
+
 qq() {      # QQ
     d
     cmd.exe /c start "" "D:\Social\Tencent\QQNT\QQ.exe"
