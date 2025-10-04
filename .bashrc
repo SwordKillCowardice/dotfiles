@@ -5,6 +5,9 @@ case $- in
       *) return;;
 esac
 
+# 添加路径到环境变量
+export PATH="$HOME/.local/bin:$PATH"
+
 # chroot
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -107,6 +110,13 @@ cd() {
     fi
 }
 
+# 集成git提示
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_THEME=Single_line_Ubuntu
+    source "$HOME/.bash-git-prompt/gitprompt.sh"
+fi
+
 # ---------------------------------------------------------------------------------------
 
 # 别名
@@ -125,11 +135,13 @@ alias gs='git status'
 
 # 虚拟机
 alias vmls='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe list vms'
-alias vmon='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe startvm "Ubuntu Server 24.04" --type headless'
+alias vmon='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe startvm US2404 --type headless'
 alias vmrun='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe list runningvms'
-alias vmoff='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe controlvm "Ubuntu Server 24.04" poweroff'
+alias vmoff='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe controlvm US2404 poweroff'
+alias vmip='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe guestproperty get US2404 "/VirtualBox/GuestInfo/Net/0/V4/IP"' 
+alias vmcon='ssh -p 3022 skc@$(ip route | grep default | sed -E '\''s/.* ([0-9.]+).*/\1/'\'')'
 
-# ---------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 
 # 目录切换
 alias d='cd /mnt/d'
@@ -141,8 +153,8 @@ alias dp='cd /mnt/d/'\''#Persistence'\''/Persistence'
 alias vb='vim ~/.bashrc'    # 快速编辑bash配置文件
 alias rb='source ~/.bashrc' # 重载bash配置
 alias vv='vim ~/.vimrc'     # 快速编辑vim配置文件
-alias vt='vim test'         # 快速打开测试文件
-alias rt='rm test'          # 快速移除测试文件
+alias vt='vim /tmp/test'         # 快速打开测试文件
+alias rt='rm /tmp/test'          # 快速移除测试文件
 
 # 打开网页
 alias gh='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://github.com/'
@@ -162,19 +174,19 @@ wopen() {
     )
 }
 
-# 别名
-alias cfw='wopen "/mnt/d/Tools/CFW_META/Clash for Windows.exe"'
-alias et='wopen "/mnt/c/Program Files/Everything/Everything.exe"'
-alias xmind='wopen /mnt/c/Users/tianx/AppData/Local/Programs/Xmind/Xmind.exe'
-alias qq='wopen /mnt/d/Social/Tencent/QQNT/QQ.exe'
-alias vx='wopen /mnt/d/Social/Weixin/Weixin.exe'
-
 # 打开笔记
 note() {
     d
     cmd.exe /c start "$(wslpath -w ./Missing-Semester/Missing-Semester.xmind)"
     cd ~
 }
+
+# 别名
+alias cfw='wopen "/mnt/d/Tools/CFW_META/Clash for Windows.exe"'
+alias et='wopen "/mnt/c/Program Files/Everything/Everything.exe"'
+alias xmind='wopen /mnt/c/Users/tianx/AppData/Local/Programs/Xmind/Xmind.exe'
+alias qq='wopen /mnt/d/Social/Tencent/QQNT/QQ.exe'
+alias vx='wopen /mnt/d/Social/Weixin/Weixin.exe'
 
 # ---------------------------------------------------------------------------------------
 

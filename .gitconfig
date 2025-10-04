@@ -1,0 +1,27 @@
+[user]
+    name = SwordKillCowardice 
+    email = 3123665903@qq.com
+
+[core]
+    editor = vim        # 提交信息默认使用 vim 编辑器
+	autocrlf = input    # 处理换行符
+    pager = less -FRX   # 设置分页器
+    filemode = false    # 不要标记权限变化的文件
+	excludesfile = /home/swordkillcowardice/.gitignore_global # 全局忽略文件
+
+[color]
+    ui = auto           # 命令行输出启用颜色显示
+
+# [alias]
+
+[push]
+    default = simple    # 推送分支策略
+
+[pull]
+    rebase = false      # 使用合并
+
+[merge]
+    tool = vimdiff      # 合并冲突时使用的工具
+
+[difftool]
+    prompt = false      # 关闭提示信息

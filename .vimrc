@@ -34,10 +34,24 @@ Plug 'tpope/vim-surround'                           " vim-surround：快速修�
 Plug 'tpope/vim-fugitive'                           " vim-fugitive: Git集成
 Plug 'airblade/vim-gitgutter'                       " vim-gitgutter：Git改动可视化
 Plug 'easymotion/vim-easymotion'                    " vim-easymotion：快速跳转
+Plug 'dense-analysis/ale'                           " ALE：代码实时检查
 
 call plug#end() " 结束
 
 filetype plugin indent on   " 根据文件类型自动缩进
+
+" ALE配置
+let g:ale_linters = {'python': ['flake8', 'mypy']} " Python分析器
+let g:ale_linters = {'shell': ['shellcheck']}      " Shell分析器
+let g:ale_fixers = {'python': ['black','isort']}           " 代码格式化
+
+" 实时检查
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_on_insert_leave = 1
+
+" 修复时机
+let g:ale_fix_on_save = 1           " 保存时自动运行fixer：直接保存并退出时不修复哈
+let g:ale_fix_on_insert_leave = 0   " 离开插入模式不自动修复
 
 " -----------------------------------------------------------------
 
