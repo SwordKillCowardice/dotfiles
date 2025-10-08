@@ -141,6 +141,9 @@ alias vmoff='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe controlvm US
 alias vmip='/mnt/d/Program\ Files/Oracle/VirtualBox/VBoxManage.exe guestproperty get US2404 "/VirtualBox/GuestInfo/Net/0/V4/IP"' 
 alias vmcon='ssh -p 3022 skc@$(ip route | grep default | sed -E '\''s/.* ([0-9.]+).*/\1/'\'')'
 
+# Python调试
+alias db='python3 -m pdb'
+
 # --------------------------------------------------------------------------------------
 
 # 目录切换

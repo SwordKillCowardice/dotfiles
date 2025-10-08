@@ -43,11 +43,13 @@ filetype plugin indent on   " 根据文件类型自动缩进
 " ALE配置
 let g:ale_linters = {'python': ['flake8', 'mypy']} " Python分析器
 let g:ale_linters = {'shell': ['shellcheck']}      " Shell分析器
-let g:ale_fixers = {'python': ['black','isort']}           " 代码格式化
+let g:ale_fixers = {'python': ['black','isort']}   " 代码格式化
 
 " 实时检查
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_on_insert_leave = 1
+highlight ALEError ctermbg=124 guibg=#FFEEEE ctermfg=NONE guifg=NONE
+highlight ALEWarning ctermbg=186 guibg=#F0E6B3 ctermfg=NONE guifg=NONE
 
 " 修复时机
 let g:ale_fix_on_save = 1           " 保存时自动运行fixer：直接保存并退出时不修复哈
