@@ -164,7 +164,7 @@ alias gh='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" htt
 alias gpt='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://chatgpt.com/'
 alias dou='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://www.doubao.com/chat/' 
 alias deep='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://www.deepl.com/zh/translator'
-alias miss='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://missing-semester-cn.github.io/ '
+alias bl='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://space.bilibili.com/3546908381415679?spm_id_from=333.1007.0.0' 
 
 # 打开软件
 # 定义函数wopen
@@ -177,16 +177,10 @@ wopen() {
     )
 }
 
-# 打开笔记
-note() {
-    d
-    cmd.exe /c start "$(wslpath -w ./Missing-Semester/Missing-Semester.xmind)"
-    cd ~
-}
-
 # 别名
 alias cfw='wopen "/mnt/d/Tools/CFW_META/Clash for Windows.exe"'
 alias et='wopen "/mnt/c/Program Files/Everything/Everything.exe"'
+alias obs='wopen /mnt/d/Tools/Obsidian/Obsidian.exe'
 alias xmind='wopen /mnt/c/Users/tianx/AppData/Local/Programs/Xmind/Xmind.exe'
 alias qq='wopen /mnt/d/Social/Tencent/QQNT/QQ.exe'
 alias vx='wopen /mnt/d/Social/Weixin/Weixin.exe'
