@@ -180,7 +180,7 @@ wopen() {
 # 别名
 alias cfw='wopen "/mnt/d/Tools/CFW_META/Clash for Windows.exe"'
 alias et='wopen "/mnt/c/Program Files/Everything/Everything.exe"'
-alias obs='wopen /mnt/d/Tools/Obsidian/Obsidian.exe'
+alias osd='wopen /mnt/d/Tools/Obsidian/Obsidian.exe'
 alias xmind='wopen /mnt/c/Users/tianx/AppData/Local/Programs/Xmind/Xmind.exe'
 alias qq='wopen /mnt/d/Social/Tencent/QQNT/QQ.exe'
 alias vx='wopen /mnt/d/Social/Weixin/Weixin.exe'
