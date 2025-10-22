@@ -25,3 +25,5 @@
 
 [difftool]
     prompt = false      # 关闭提示信息
+[credential]
+	helper = store

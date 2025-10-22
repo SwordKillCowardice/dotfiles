@@ -149,20 +149,17 @@ alias db='python3 -m pdb'
 # 目录切换
 alias d='cd /mnt/d'
 alias c='cd /mnt/c'
-alias dt='cd /tmp' # /tmp目录 
-alias dp='cd /mnt/d/'\''#Persistence'\''/Persistence'
+alias skc='cd /mnt/c/Users/tianx/Desktop/SwordKillCowardice'
 
 # 打开文件
 alias vb='vim ~/.bashrc'    # 快速编辑bash配置文件
 alias rb='source ~/.bashrc' # 重载bash配置
 alias vv='vim ~/.vimrc'     # 快速编辑vim配置文件
-alias vt='vim /tmp/test'         # 快速打开测试文件
-alias rt='rm /tmp/test'          # 快速移除测试文件
 
 # 打开网页
 alias gh='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://github.com/'
 alias gpt='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://chatgpt.com/'
-alias dou='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://www.doubao.com/chat/' 
+alias ds='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://chat.deepseek.com/'
 alias deep='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://www.deepl.com/zh/translator'
 alias bl='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://space.bilibili.com/3546908381415679?spm_id_from=333.1007.0.0' 
 
