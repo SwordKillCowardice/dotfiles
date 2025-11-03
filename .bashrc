@@ -155,6 +155,7 @@ alias skc='cd /mnt/c/Users/tianx/Desktop/SwordKillCowardice'
 alias vb='vim ~/.bashrc'    # 快速编辑bash配置文件
 alias rb='source ~/.bashrc' # 重载bash配置
 alias vv='vim ~/.vimrc'     # 快速编辑vim配置文件
+alias rge='vim ~/rg/server.py'
 
 # 打开网页
 alias gh='"/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" https://github.com/'
