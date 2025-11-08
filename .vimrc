@@ -35,6 +35,7 @@ Plug 'tpope/vim-fugitive'                           " vim-fugitive: Git集成
 Plug 'airblade/vim-gitgutter'                       " vim-gitgutter：Git改动可视化
 Plug 'easymotion/vim-easymotion'                    " vim-easymotion：快速跳转
 Plug 'dense-analysis/ale'                           " ALE：代码实时检查
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' } " 渲染Markdown
 
 call plug#end() " 结束
 
